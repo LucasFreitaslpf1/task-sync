@@ -1,0 +1,98 @@
+<x-layout>
+    <a class="btn" href="{{ route('/usuario') }}">Voltar</a>
+    <form method="post">
+        @csrf
+        @method('PUT')
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" value={{ $usuario->nome }}>
+
+        @error('nome')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+
+        <label for="email">Email</label>
+        <input type="text" name="email" value={{ $usuario->email }}>
+        @error('email')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+        <br>
+
+        <label for="telefone">Telefone</label>
+        <input type="text" name="telefone" value={{ $usuario->telefone }}>
+        @error('telefone')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+        <br>
+
+        <label for="cpf">CPF</label>
+        <input type="text" name="cpf" value={{ $usuario->cpf }}>
+        @error('cpf')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+        <br>
+
+        <label for="data_nascimento">Data de Nascimento</label>
+        <input type="date" name="data_nascimento" value={{ $usuario->data_nascimento }}>
+        @error('data_nascimento')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+        <br>
+
+        <label for="numero">Número</label>
+        <input type="text" name="numero" value={{ $usuario->numero }}>
+        @error('numero')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+        <br>
+
+        <label for="rua">Rua</label>
+        <input type="text" name="rua" value={{ $usuario->rua }}>
+        @error('rua')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+        <br>
+
+        <label for="bairro">Bairro</label>
+        <input type="text" name="bairro" value={{ $usuario->bairro }}>
+        @error('bairro')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+        <br>
+
+        <label for="cep">CEP</label>
+        <input type="text" name="cep" value={{ $usuario->cep }}>
+        @error('cep')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+        <br>
+
+        <button type="submit">Salvar</button>
+    </form>
+</x-layout>
