@@ -13,6 +13,7 @@
     <header>
         <h1>TaskSync</h1>
         <a href="/usuario" class="btn">Usuarios</a>
+        <a href="/tarefa" class="btn">Tarefas</a>
     </header>
 
     <main class="container">

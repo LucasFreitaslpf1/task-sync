@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\TarefaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +27,15 @@ Route::controller(UsuarioController::class)->group(
         Route::get('/usuario/{id}', 'view')->name('usuario.view');
         Route::get('/usuario/update/{usuario}', 'update')->name("usuario.update");
         Route::put('/usuario/update/{usuario}', 'atualizar')->name("usuario.update");
+    }
+);
+
+Route::controller(TarefaController::class)->group(
+    function (){
+        Route::get('/tarefa', 'index')->name('/tarefa');
+        Route::get('/tarefa/create', 'create')->name('tarefa.create');
+        Route::post('/tarefa', 'store')->name("tarefa.store");
+        Route::get('/tarefa/{tarefa}', 'show')->name("tarefa.show");
+        Route::delete('/tarefa/{tarefa}','destroy')->name("tarefa.destroy");
     }
 );
