@@ -27,13 +27,13 @@ Route::controller(UsuarioController::class)->group(
         Route::get('/usuario/{id}', 'view')->name('usuario.view');
         Route::get('/usuario/update/{usuario}', 'update')->name("usuario.update");
         Route::put('/usuario/update/{usuario}', 'atualizar')->name("usuario.update");
-        Route::delete('/usuario/delete/{usuario}', 'delete')->name('usuario.destroy');
+        Route::delete('/usuario/delete/{usuario}', 'destroy')->name('usuario.destroy');
     }
 );
 
 Route::controller(TarefaController::class)->group(
     function () {
-        Route::get('/tarefa', 'index')->name('/tarefa');
+        Route::get('/tarefa', 'index')->name('tarefa.index');
         Route::get('/tarefa/create', 'create')->name('tarefa.create');
         Route::post('/tarefa', 'store')->name("tarefa.store");
         Route::get('/tarefa/{tarefa}', 'show')->name("tarefa.show");
@@ -55,4 +55,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

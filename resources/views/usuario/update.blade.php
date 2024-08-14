@@ -3,10 +3,10 @@
     <form method="post" class="form-control">
         @csrf
         @method('PUT')
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" value={{ $usuario->nome }}>
+        <label for="name">Nome</label>
+        <input type="text" name="name" value={{ $usuario->users->name }}>
 
-        @error('nome')
+        @error('name')
             <div class="error-message">
                 <i>&#9888;</i> <!-- Ícone de alerta -->
                 {{ $message }}
@@ -14,7 +14,7 @@
         @enderror
 
         <label for="email">Email</label>
-        <input type="text" name="email" value={{ $usuario->email }}>
+        <input type="text" name="email" value={{ $usuario->users->email }}>
         @error('email')
             <div class="error-message">
                 <i>&#9888;</i> <!-- Ícone de alerta -->
@@ -92,6 +92,24 @@
             </div>
         @enderror
         <br>
+
+        <label for="password">Senha</label>
+        <input type="password" name="password" class="form-control">
+        @error('password')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+
+        <label for="password_confirmation">Confirmar Senha</label>
+        <input type="password" name="password_confirmation" class="form-control">
+        @error('password')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
 
         <button type="submit" class="btn btn-primary">Atualizar</button>
     </form>

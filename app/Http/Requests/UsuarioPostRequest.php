@@ -2,8 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class UsuarioPostRequest extends FormRequest
 {
@@ -23,14 +25,14 @@ class UsuarioPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => ['required', 'max:255'],
-            'email' => [
-                'required',
-                'max:255',
-                'email',
-                'unique:App\Models\Usuario\Usuario,email',
-                Rule::unique('usuario')->ignore($this->usuario),
-            ],
+            // 'name' => ['required', 'max:255'],
+            // 'email' => [
+            //     'required',
+            //     'max:255',
+            //     'email',
+            //     'unique:App\Models\Usuario\Usuario,email',
+            //     Rule::unique('usuario')->ignore($this->usuario),
+            // ],
             'telefone' => ['required', 'max:255'],
             'cpf' => [
                 'required',
@@ -43,13 +45,16 @@ class UsuarioPostRequest extends FormRequest
             'rua' => ['required', 'max:255'],
             'bairro' => ['required', 'max:255'],
             'cep' => ['required', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            // 'password' => ['required', 'confirmed', Password::defaults()],
         ];
     }
 
     public function messages()
     {
         return [
-            'nome.required' => 'Nome é obrigatório',
+            'name.required' => 'Nome é obrigatório',
             'email.required' => 'Email é obrigatório',
             'telefone.required' => 'Telefone é obrigatório',
             'cpf.required' => 'CPF é obrigatório',
@@ -62,6 +67,7 @@ class UsuarioPostRequest extends FormRequest
             'email.unique' => 'Email já cadastrado',
             'numero.integer' => 'Numero precisa ser um número inteiro',
             'cpf.unique' => 'Cpf já cadastrado',
+            'password' => 'Senha é obrigatório',
         ];
     }
 }

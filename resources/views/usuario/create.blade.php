@@ -2,10 +2,10 @@
     <a class="btn btn-secondary" href="{{ route('/usuario') }}">Voltar</a>
     <form method="post" class="form-control">
         @csrf
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" value={{ old('nome') }}>
+        <label for="name">Nome</label>
+        <input type="text" name="name" value={{ old('name') }}>
 
-        @error('nome')
+        @error('name')
             <div class="error-message">
                 <i>&#9888;</i> <!-- Ícone de alerta -->
                 {{ $message }}
@@ -20,17 +20,15 @@
                 {{ $message }}
             </div>
         @enderror
-        <br>
 
         <label for="telefone">Telefone</label>
-        <input type="text" id="phone" name="telefone" value={{ old('telefone') }}>
+    <input type="text" id="phone" name="telefone" value="{{ old('telefone') }}">
         @error('telefone')
             <div class="error-message">
                 <i>&#9888;</i> <!-- Ícone de alerta -->
                 {{ $message }}
             </div>
         @enderror
-        <br>
 
         <label for="cpf">CPF</label>
         <input type="text" name="cpf" id="cpf" value={{ old('cpf') }}>
@@ -40,7 +38,6 @@
                 {{ $message }}
             </div>
         @enderror
-        <br>
 
         <label for="data_nascimento">Data de Nascimento</label>
         <input type="date" name="data_nascimento" class="form-control" value={{ old('data_nascimento') }}>
@@ -50,7 +47,6 @@
                 {{ $message }}
             </div>
         @enderror
-        <br>
 
         <label for="numero">Número</label>
         <input type="text" name="numero" value={{ old('numero') }}>
@@ -60,7 +56,6 @@
                 {{ $message }}
             </div>
         @enderror
-        <br>
 
         <label for="rua">Rua</label>
         <input type="text" name="rua" value={{ old('rua') }}>
@@ -70,7 +65,6 @@
                 {{ $message }}
             </div>
         @enderror
-        <br>
 
         <label for="bairro">Bairro</label>
         <input type="text" name="bairro" value={{ old('bairro') }}>
@@ -80,7 +74,6 @@
                 {{ $message }}
             </div>
         @enderror
-        <br>
 
         <label for="cep">CEP</label>
         <input type="text" id="cep" name="cep" value={{ old('cep') }}>
@@ -90,7 +83,24 @@
                 {{ $message }}
             </div>
         @enderror
-        <br>
+
+        <label for="password">Senha</label>
+        <input type="password" name="password" class="form-control">
+        @error('password')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
+
+        <label for="password_confirmation">Confirmar Senha</label>
+        <input type="password" name="password_confirmation" class="form-control">
+        @error('password')
+            <div class="error-message">
+                <i>&#9888;</i> <!-- Ícone de alerta -->
+                {{ $message }}
+            </div>
+        @enderror
 
         <button type="submit" class="btn btn-success">Salvar</button>
     </form>

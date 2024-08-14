@@ -2,8 +2,10 @@
 
 namespace App\Models\Usuario;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Usuario extends Model
 {
@@ -12,8 +14,8 @@ class Usuario extends Model
     protected $table = "usuario";
 
     protected $fillable = [
-        'nome',
-        'email',
+        // 'nome',
+        // 'email',
         'telefone',
         'cpf',
         'data_nascimento',
@@ -22,4 +24,9 @@ class Usuario extends Model
         'rua',
         'cep',
     ];
+
+    public function users(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'id');
+    }
 }

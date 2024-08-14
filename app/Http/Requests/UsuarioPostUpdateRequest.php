@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -23,12 +24,12 @@ class UsuarioPostUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nome' => ['required', 'max:255'],
+            'name' => ['required', 'max:255'],
             'email' => [
                 'required',
                 'max:255',
                 'email',
-                'unique:App\Models\Usuario\Usuario,email,' . $this->usuario->id,
+                'unique:App\Models\User,email,' . $this->usuario->id,
             ],
             'telefone' => ['required', 'max:255'],
             'cpf' => [
@@ -41,6 +42,7 @@ class UsuarioPostUpdateRequest extends FormRequest
             'rua' => ['required', 'max:255'],
             'bairro' => ['required', 'max:255'],
             'cep' => ['required', 'max:255'],
+            // 'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
         ];
     }
 

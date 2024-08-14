@@ -160,37 +160,6 @@ label {
     color: #333;
 }
 
-/* Estilo dos botões */
-button,
-input[type="submit"],
-.btn {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-}
-
-button:hover,
-input[type="submit"]:hover,
-btn:hover {
-    background-color: #0056b3;
-    text-decoration: none;
-}
-
-/* Estilo dos botões desativados */
-button:disabled,
-input[type="submit"]:disabled,
-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    text-decoration: none;
-}
-
 /* Estilo das mensagens de erro */
 .error-message {
     color: #dc3545;
