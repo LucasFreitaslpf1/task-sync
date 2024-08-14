@@ -118,7 +118,7 @@ body {
 }
 
 /* Estilo do container do formulário */
-form {
+.form-custom {
     max-width: 600px;
     margin: 0 auto;
     padding: 1rem;
