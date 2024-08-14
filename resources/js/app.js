@@ -1,23 +1,17 @@
-import './bootstrap';
+import "./bootstrap";
 
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
+import Inputmask from "inputmask";
 
 import "../scss/app.scss";
 
 import * as bootstrap from "bootstrap";
-
-import Inputmask from "inputmask";
 
 document.addEventListener("DOMContentLoaded", function () {
     var phoneInput = document.getElementById("phone");
 
     console.log(phoneInput);
 
-    if (phoneInput != null || phoneInput.textContext == "") {
+    if (phoneInput != null) {
         Inputmask("(99) 99999-9999").mask(phoneInput);
     }
 
