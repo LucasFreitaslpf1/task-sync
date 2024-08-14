@@ -20,6 +20,7 @@ class UsuarioController extends Controller
 
     public function create()
     {
+        // dd(old('nascimento') == null);
         return view('usuario.create');
     }
 
@@ -52,6 +53,12 @@ class UsuarioController extends Controller
         $usuario->update($request->validated());
 
         return view('usuario.view', ['usuario' => $usuario]);
+    }
+
+    public function destroy(Usuario $usuario)
+    {
+        $usuario->delete();
+        return redirect()->route('/usuario');
     }
 
 

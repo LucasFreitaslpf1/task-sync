@@ -1,6 +1,6 @@
 <x-layout>
-    <a class="btn" href="{{ route('/usuario') }}">Voltar</a>
-    <form method="post">
+    <a class="btn btn-secondary" href="{{ route('/usuario') }}">Voltar</a>
+    <form method="post" class="form-control">
         @csrf
         <label for="nome">Nome</label>
         <input type="text" name="nome" value={{ old('nome') }}>
@@ -23,7 +23,7 @@
         <br>
 
         <label for="telefone">Telefone</label>
-        <input type="text" name="telefone" value={{ old('telefone') }}>
+        <input type="text" id="phone" name="telefone" value={{ old('telefone') }}>
         @error('telefone')
             <div class="error-message">
                 <i>&#9888;</i> <!-- Ícone de alerta -->
@@ -33,7 +33,7 @@
         <br>
 
         <label for="cpf">CPF</label>
-        <input type="text" name="cpf" value={{ old('cpf') }}>
+        <input type="text" name="cpf" id="cpf" value={{ old('cpf') }}>
         @error('cpf')
             <div class="error-message">
                 <i>&#9888;</i> <!-- Ícone de alerta -->
@@ -43,7 +43,7 @@
         <br>
 
         <label for="data_nascimento">Data de Nascimento</label>
-        <input type="date" name="data_nascimento" value={{ old('data_nascimento') }}>
+        <input type="date" name="data_nascimento" class="form-control" value={{ old('data_nascimento') }}>
         @error('data_nascimento')
             <div class="error-message">
                 <i>&#9888;</i> <!-- Ícone de alerta -->
@@ -83,7 +83,7 @@
         <br>
 
         <label for="cep">CEP</label>
-        <input type="text" name="cep" value={{ old('cep') }}>
+        <input type="text" id="cep" name="cep" value={{ old('cep') }}>
         @error('cep')
             <div class="error-message">
                 <i>&#9888;</i> <!-- Ícone de alerta -->
@@ -92,6 +92,6 @@
         @enderror
         <br>
 
-        <button type="submit">Salvar</button>
+        <button type="submit" class="btn btn-success">Salvar</button>
     </form>
 </x-layout>

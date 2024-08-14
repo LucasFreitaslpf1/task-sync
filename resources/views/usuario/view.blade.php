@@ -1,5 +1,10 @@
 <x-layout>
-    <a class="btn" href="{{ route('/usuario') }}">Voltar</a>
+
+    <a class="btn btn-secondary" href="{{ route('/usuario') }}">Voltar</a>
+    <br><br>
+    <form>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+    </form>
     <table>
         <tr>
             <td>Nome:</td>
