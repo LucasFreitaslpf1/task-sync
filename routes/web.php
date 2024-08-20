@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\TarefaController;
+use App\Http\Controllers\AreaServicoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,18 +29,50 @@ Route::controller(UsuarioController::class)->group(
         Route::get('/usuario/update/{usuario}', 'update')->name("usuario.update");
         Route::put('/usuario/update/{usuario}', 'atualizar')->name("usuario.update");
         Route::delete('/usuario/delete/{usuario}', 'destroy')->name('usuario.destroy');
+        Route::post('/areaservico/{Areaservico}/employees', 'addFuncionarioToAreaServico')->name('areaservico.add-func');
+        Route::delete('/areaservico/{Areaservico}/employees/{employee}', 'removeFuncionarioFromAreaServico')->name('areaservico.remove-func');
+
+
     }
 );
 
 Route::controller(TarefaController::class)->group(
     function () {
-        Route::get('/tarefa', 'index')->name('tarefa.index');
+        //Listar Tarefas
+        Route::get('/tarefa', 'index')->name('tarefa.index'); // Listagem de tarefas
+        
+        // Criar Tarefa
         Route::get('/tarefa/create', 'create')->name('tarefa.create');
         Route::post('/tarefa', 'store')->name("tarefa.store");
-        Route::get('/tarefa/{tarefa}', 'show')->name("tarefa.show");
+        
+        // Editar Tarefa
+        Route::get('/tarefa/{tarefa}/edit', 'edit')->name('tarefa.edit');
+        Route::put('/tarefa/{tarefa}', 'update')->name("tarefa.update");
+        
+        // Visualizar Tarefa
+        Route::get('/tarefa/{tarefa}', 'show')->name("tarefa.show"); 
+        
+        //Apagar Tarefa
         Route::delete('/tarefa/{tarefa}', 'destroy')->name("tarefa.destroy");
     }
 );
+
+Route::controller(AreaServicoController::class)->group(
+    function (){
+        Route::get('/areaservico', 'index')->name('areaservico.index'); // Listar áreas de serviço - FE-01
+        Route::get('/areaservico/{id}', 'show')->name('areaservico.show'); // Mostrar uma area de servico especifica
+        Route::get('/areaservico/create', 'create')->name('areaservico.create'); // Formulário de criação
+        Route::post('/areaservico', 'store')->name('areaservico.store'); // Criar área de serviço - FA-01
+        Route::get('/areaservico/{id}/edit','edit')->name('areaservico.edit'); // Formulário de edição - 
+        Route::put('/areaservico/{id}', 'update')->name('areaservico.update'); // Atualizar área de serviço - FA 03
+        Route::delete('/areaservico/{id}', 'destroy')->name('areaservico.destroy'); // Deletar uma area - FA-04
+
+
+    }
+);
+
+    
+
 
 Route::get('/', function () {
     return view('welcome');

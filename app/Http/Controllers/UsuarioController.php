@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AreaServico\AreaServico;
 use App\Http\Requests\UsuarioPostRequest;
 use App\Http\Requests\UsuarioPostUpdateRequest;
 use App\Models\User;
@@ -94,4 +95,16 @@ class UsuarioController extends Controller
             abort(404, $e->getMessage());
         }
     }
+
+    public function addFuncionarioToAreaServico(Request $request, $AreaservicoId)
+{
+    $Areaservico = AreaServico::findOrFail($AreaservicoId);
+    $employeeId = $request->input('func_id');
+
+    if (!$Areaservico->employees->contains($employeeId)) {
+        $Areaservico->employees()->attach($employeeId);
+    }
+
+    return redirect()->route('areaservico.show', $Areaservico->id)->with('success', 'Funcionário adicionado com sucesso!');
+}
 }
